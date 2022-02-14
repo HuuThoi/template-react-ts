@@ -1,4 +1,4 @@
-@import '../../styles/mixins/index.scss';
+@import "../../styles/mixins/index.scss";
 
 .sidebar {
   font-family: "Google Sans";
@@ -61,7 +61,7 @@
 
       &::before {
         content: "";
-        @include width-height(30px, 30px);
+        @include width-height(24px, 24px);
         border-radius: 50%;
         position: absolute;
         top: 0;
@@ -73,7 +73,7 @@
 
       &::after {
         content: "";
-        @include width-height(30px, 30px);
+        @include width-height(24px, 24px);
         border-radius: 50%;
         position: absolute;
         bottom: 0;
@@ -97,7 +97,7 @@
     span {
       font-weight: 500;
       font-size: 14px;
-      line-height: 10px;
+      line-height: 16px;
       color: #a0aac8;
       opacity: 0.6;
     }
@@ -108,12 +108,12 @@
   }
 }
 
-.sidebar-collapse {
-  min-width: 54px;
-  .sidebar__logo{
-      span{
-          display: none;
-      }
+.sidebar.sidebar-collapse {
+  min-width: 50px;
+  .sidebar__logo {
+    span {
+      display: none;
+    }
   }
   .sidebar__item-inner {
     padding: 15px 15px;
@@ -154,6 +154,29 @@
     &:hover .tooltip {
       visibility: visible;
       opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    min-width: 30%;
+    .sidebar__item {
+      padding-left: 8px;
+      .sidebar__item-inner {
+        padding: 8px 12px;
+        span {
+          font-size: 16px;
+        }
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .sidebar__logo {
+      span {
+        font-size: 16px;
+      }
     }
   }
 }

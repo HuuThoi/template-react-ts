@@ -1,0 +1,40 @@
+@import "../../../styles/mixins/index.scss";
+
+.header-option {
+  font-weight: normal;
+  color: #42427d;
+  position: absolute;
+  right: 0;
+  min-width: 140px;
+  transform: translateY(36px);
+  .popover-content {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .popover-title {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .popover-inner-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      a{
+        color: #42427d;
+      }
+    }
+    &:after {
+        content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    top: 0;
+    right: 0;
+    transform: translate(-10px, -10px);
+      }
+  }
+}

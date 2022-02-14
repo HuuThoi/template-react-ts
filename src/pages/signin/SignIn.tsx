@@ -49,7 +49,6 @@ const SignIn = ({ logInConnect }: IProps) => {
     }
 
     const onSubmit = (data: LoginForm) => {
-        console.log(JSON.stringify(data, null, 2));
         logInConnect();
     };
 

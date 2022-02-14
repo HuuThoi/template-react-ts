@@ -4,12 +4,15 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  position: relative;
+  background: white;
   .notification,
   .profile {
     position: relative;
     background-color: #dce2f6;
     @include width-height(30px, 30px);
     padding: 5px;
+    cursor: pointer;
     svg {
       @include width-height(20px, 20px);
     }
