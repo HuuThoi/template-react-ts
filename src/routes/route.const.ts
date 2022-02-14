@@ -1,8 +1,4 @@
-import ForgotPassword from 'pages/forgot-pasword/ForgotPassword';
-import SignIn from 'pages/signin/SignIn';
-import React, { lazy, Suspense } from 'react';
-import { useSelector } from 'react-redux';
-import { Redirect, Route, RouteProps, Switch, useRouteMatch } from 'react-router-dom';
+import { lazy } from 'react';
 
 export const PUBLIC_ROUTE = [
     {
@@ -12,7 +8,7 @@ export const PUBLIC_ROUTE = [
     },
     {
         path: '/forgot-password',
-        component: lazy(() => import('../pages/forgot-pasword/ForgotPassword')),
+        component: lazy(() => import('../pages/forgot-password/ForgotPassword')),
         exact: true
 
     },
@@ -31,6 +27,10 @@ export const AUTH_ROUTE = [
     {
         path: '/page-c',
         component: lazy(() => import('../pages/PageC')),
+    },
+    {
+        path: '/settings',
+        component: lazy(() => import('../pages/settings/Setting')),
     },
     {
         path: '',

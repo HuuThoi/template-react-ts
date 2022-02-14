@@ -1,4 +1,4 @@
-import ForgotPassword from 'pages/forgot-pasword/ForgotPassword';
+import ForgotPassword from 'pages/forgot-password/ForgotPassword';
 import SignIn from 'pages/signin/SignIn';
 import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, BrowserRouter as Router, Redirect, Route, RouteComponentProps, Switch, useHistory, useLocation } from 'react-router-dom';

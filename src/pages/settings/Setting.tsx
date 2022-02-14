@@ -1,9 +1,9 @@
-const PageC = () => {
+const Setting = () => {
     return (
         <div className="">
-        Page C
+        
         </div>
     )
 }
 
-export default PageC;
+export default Setting;

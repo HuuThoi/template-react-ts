@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import axios from 'axios';
+import { RouteComponentProps } from 'react-router-dom';
 
 class PageB extends React.Component<RouteComponentProps> {
     constructor(props: RouteComponentProps) {
