@@ -3,10 +3,16 @@ import React, { useState, FC } from 'react';
 import { themeData } from './themeData';
 
 export const ThemeProvider: FC = ({ children }) => {
-  const [theme, setTheme] = useState(themeData.lightColor);
+  let themeLocalStorage = localStorage.getItem('theme');
+  if (themeLocalStorage == null || (themeLocalStorage != themeData.lightColor && themeLocalStorage != themeData.purpleColor))
+    themeLocalStorage = themeData.lightColor;
+
+  const [theme, setTheme] = useState(themeLocalStorage);
 
   const changeTheme = () => {
-    setTheme(theme == themeData.lightColor ? themeData.purpleColor : themeData.lightColor);
+    let newTheme = theme == themeData.lightColor ? themeData.purpleColor : themeData.lightColor;
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
   };
 
   return (
