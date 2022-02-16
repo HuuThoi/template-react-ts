@@ -37,9 +37,9 @@ const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
     if (!show)
         return null;
 
-
+    let classShow = show ? 'show' : '';
     return (
-        <div  ref={wrapperRef} className="header-option">
+        <div ref={wrapperRef} className={`header-option ${classShow}`}>
             <div className="popover-content">
                 <div className="popover-title">
                     Todo

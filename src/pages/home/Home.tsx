@@ -27,8 +27,6 @@ export default class Home extends React.Component<RouteComponentProps> {
                         return <div>{props.theme}</div>
                     }}
                 </ThemeConsumer> */}
-
-                {/* render sidebar temporality for checking css */}
             </div>
         )
     }

@@ -17,9 +17,8 @@ function App() {
 
   // function bankruptClick(): void {
   //   bankrupt();
-  // }
+  // }ß
 
-  const { theme } = useTheme();
   return (
     <main>
       <AppRouter />

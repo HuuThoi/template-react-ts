@@ -1,5 +1,6 @@
 
 import { createContext} from 'react';
+import { themeData } from './themeData';
 
 export type ThemeContextType = {
     theme: string;
@@ -7,7 +8,7 @@ export type ThemeContextType = {
 }
 
 const initialValue = {
-    theme: 'light',
+    theme: '',
     changeTheme: () => {}
 }
 

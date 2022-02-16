@@ -1,4 +1,5 @@
 import { Header, Sidebar } from 'components';
+import { useTheme } from 'contexts/themes/hookTheme';
 import { AppState } from 'my-redux/reducers';
 import * as React from 'react';
 import { connect, useSelector } from 'react-redux';
@@ -21,11 +22,13 @@ const PrivateRoute = (props: AppRouteProps) => {
     const { component: Component, ...rest } = props;
     const isAuthenticated = useSelector((state: AppState) => state.authenticationReducer.isAuthenticated);
 
+    const { theme } = useTheme();
+
     return (
         <Route
             render={(routeProps) =>
                 isAuthenticated ? (
-                    <MainWrapper>
+                    <MainWrapper theme={theme}>
                         <Sidebar {...props} />
                         <PageContentWrapper>
                             <Header/>

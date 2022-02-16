@@ -16,17 +16,13 @@ export const PUBLIC_ROUTE = [
 
 export const AUTH_ROUTE = [
     {
-        path: '/page-a',
-        component: lazy(() => import('../pages/PageA')),
+        path: '/users',
+        component: lazy(() => import('../pages/users/User')),
     },
 
     {
         path: '/page-b',
         component: lazy(() => import('../pages/PageB')),
-    },
-    {
-        path: '/page-c',
-        component: lazy(() => import('../pages/PageC')),
     },
     {
         path: '/settings',

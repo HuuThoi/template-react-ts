@@ -5,10 +5,11 @@
   font-style: normal;
   min-width: 200px;
   @include width-height(null, 100vh);
+  min-height: 100vh;
   position: relative;
 
   .sidebar__logo {
-    height: 130px;
+    height: 100px;
     @include flex-item-center;
     justify-content: center;
 
@@ -59,26 +60,24 @@
       color: #42427d;
       transition: all 0.3s ease;
 
-      &::before {
-        content: "";
-        @include width-height(24px, 24px);
-        border-radius: 50%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: #f7faff;
-        box-shadow: 10px 10px 0 0 white;
-        transform: translateY(-100%);
-      }
-
+      &::before,
       &::after {
         content: "";
         @include width-height(24px, 24px);
         border-radius: 50%;
         position: absolute;
-        bottom: 0;
         right: 0;
         background: #f7faff;
+      }
+
+      &::before {
+        top: 0;
+        box-shadow: 10px 10px 0 0 white;
+        transform: translateY(-100%);
+      }
+
+      &::after {
+        bottom: 0;
         box-shadow: 10px -10px 0 0 white;
         transform: translateY(100%);
       }
@@ -87,8 +86,9 @@
 
   .toggle-btn-menu {
     position: absolute;
-    bottom: 0;
-    margin-bottom: 20px;
+    bottom: 5px;
+    line-height: 16px;
+    padding-left: 10px;
     @include flex-item-center;
     i {
       margin-left: 20px;
@@ -97,13 +97,28 @@
     span {
       font-weight: 500;
       font-size: 14px;
-      line-height: 16px;
       color: #a0aac8;
       opacity: 0.6;
     }
 
     &:hover {
       cursor: pointer;
+    }
+  }
+}
+
+.sidebar.purple-bg {
+  .sidebar__item-inner {
+    &.active {
+      &::before,
+      &::after {
+        background: #42427d;
+      }
+    }
+  }
+  .sidebar__logo {
+    span {
+      color: #f7faff;
     }
   }
 }
@@ -174,6 +189,9 @@
       }
     }
     .sidebar__logo {
+      img {
+        height: 35px;
+      }
       span {
         font-size: 16px;
       }

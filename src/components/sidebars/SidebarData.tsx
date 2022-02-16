@@ -8,8 +8,8 @@ export const SidebarData = [
         icon: <FaIcons.FaHome />
     },
     {
-        title: 'Page A',
-        path: '/page-a',
+        title: 'Users',
+        path: '/users',
         icon: <FaIcons.FaUsers />
     },
     {
@@ -18,8 +18,8 @@ export const SidebarData = [
         icon: <FaIcons.FaTasks />
     },
     {
-        title: 'Page C',
-        path: '/page-c',
-        icon: <FaIcons.FaTasks />
-    }
+        title: 'Settings',
+        path: '/settings',
+        icon: <FaIcons.FaUserCog />
+    },
 ]
