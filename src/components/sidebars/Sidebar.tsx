@@ -10,10 +10,11 @@ import { themeData } from 'contexts/themes/themeData';
 var classNames = require('classnames');
 
 const Sidebar: React.FunctionComponent = (props: any) => {
+    const { theme } = useTheme();
     const [collapsed, setCollapse] = useState(false);
+    
     const showSidebar = () => setCollapse(!collapsed);
 
-    const { theme } = useTheme();
     const activeItem = SidebarData.findIndex(item => item.path === props.location.pathname)
 
     const sidebarClass = classNames({
@@ -22,12 +23,15 @@ const Sidebar: React.FunctionComponent = (props: any) => {
         '': !collapsed,
         'purple-bg': theme === themeData.purpleColor
     })
+
     return (
         <div className={sidebarClass}>
-            <div className="sidebar__logo">
-                <img src="/logo192.png" alt="" />
-                <span>ForShop</span>
-            </div>
+            <Link to='/'>
+                <div className="sidebar__logo">
+                    <img src="/logo192.png" alt="" />
+                    <span>ForShop</span>
+                </div>
+            </Link>
             <div className="menu-items">
                 {
                     SidebarData.map((item, index) => (
