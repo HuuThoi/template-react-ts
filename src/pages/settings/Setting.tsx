@@ -4,7 +4,7 @@ import Dropdown from 'react-dropdown';
 import Switch from 'react-switch';
 import 'react-dropdown/style.css';
 import './Setting.scss';
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 
 import { languageDropdown, languageOptions } from 'contexts/languages/context-only/data';
 import TextMultiLanguage from 'components/text-multi-language/TextMultiLanguage';
@@ -28,6 +28,9 @@ const Setting = () => {
     }
 
     // context with intl
+    const intl = useIntl();
+    const translatedTitle = intl.formatMessage({ id: 'default.button-title' })
+
     const languageContext = useContext(LanguageContext);
     const [localeSelected] = useState(languageContext.locale);
     const onSelect = (option: any) => {
@@ -53,13 +56,22 @@ const Setting = () => {
             <div className="row">
                 <label>Change language using context only</label>
             </div>
-                <Dropdown className="custom-dropdown" value={localeSelected2} options={languageDropdown} onChange={onSelect2} placeholder="Select language" />
+            <Dropdown className="custom-dropdown" value={localeSelected2} options={languageDropdown} onChange={onSelect2} placeholder="Select language" />
 
 
-                <div className="row">
+            <div className="row">
                 <label>Change language using context and library</label>
             </div>
             <Dropdown className="custom-dropdown" value={localeSelected} options={languageDropdown} onChange={onSelect} placeholder="Select language" />
+
+
+            {/* cach 1: dung class component FormattedMessage */}
+            <FormattedMessage id="default.settingPage" />
+
+            {/* cach 2: dung hook useIntl */}
+            {/* <button title={translatedTitle}>
+                <FormattedMessage id="default.settingPage" />
+            </button> */}
         </div>
     )
 }

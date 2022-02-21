@@ -1,6 +1,7 @@
 import { AppRouter } from 'routes/routes';
-import ThemeButton from 'components/themes/ThemeButton';
 import { useTheme } from 'contexts/themes/hookTheme';
+import { LanguageProvider } from 'contexts/languages/context-with-library/LanguageProvider';
+import { LanguageProvider2 } from 'contexts/languages/context-only/LanguageProvider2';
 
 function App() {
   // const dispatch = useDispatch();
@@ -21,7 +22,11 @@ function App() {
 
   return (
     <main>
-      <AppRouter />
+      {/* <LanguageProvider2> */}
+      <LanguageProvider>
+        <AppRouter />
+      </LanguageProvider>
+      {/* </LanguageProvider2> */}
     </main>
   )
 }
