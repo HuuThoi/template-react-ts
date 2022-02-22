@@ -1,7 +1,7 @@
 import React, { useState, FC } from 'react';
 import { LanguageContext } from './LanguageContext';
 import { IntlProvider } from 'react-intl';
-import appLocales from './locales';
+import appLocales from './entries';
 
 export const LanguageProvider: FC = ({ children }) => {
     // Get the locale to use. Use Redux, useContext, URL params or local storage
@@ -24,7 +24,7 @@ export const LanguageProvider: FC = ({ children }) => {
     // Application top component (entrypoint)
     return (
         <LanguageContext.Provider value={provider}>
-            <IntlProvider locale={localeConfig.locale} messages={localeConfig.messages}>
+            <IntlProvider locale={localeConfig.locale} messages={localeConfig.message}>
                 {children}
             </IntlProvider>
         </LanguageContext.Provider>
