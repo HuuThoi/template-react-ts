@@ -6,6 +6,7 @@ background-color: white;
 padding: 30px 40px;
 margin: 20px 20px 15px 0;
 border-radius: 30px;
+overflow: hidden;
 
 @media (max-width: 992px) {
     min-height: 100vh;

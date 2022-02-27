@@ -53,20 +53,18 @@ const Setting = () => {
                 <div className="margin-left-10"><TextMultiLanguage tid="changeTheme" /></div>
             </div>
 
-            <div className="row">
+            {/* <div className="row">
                 <label>Change language using context only</label>
             </div>
-            <Dropdown className="custom-dropdown" value={localeSelected2} options={languageDropdown} onChange={onSelect2} placeholder="Select language" />
-
+            <Dropdown className="custom-dropdown" value={localeSelected2} options={languageDropdown} onChange={onSelect2} placeholder="Select language" /> */}
 
             <div className="row">
                 <label>Change language using context and library</label>
             </div>
             <Dropdown className="custom-dropdown" value={localeSelected} options={languageDropdown} onChange={onSelect} placeholder="Select language" />
 
-
             {/* cach 1: dung class component FormattedMessage */}
-            <FormattedMessage id="default.settingPage" />
+            {/* <FormattedMessage id="default.settingPage" /> */}
 
             {/* cach 2: dung hook useIntl */}
             {/* <button title={translatedTitle}>
