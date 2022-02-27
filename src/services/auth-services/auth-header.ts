@@ -1,8 +1,7 @@
-import { AuthenticationKey } from "constants/authen-key";
 import CryptoJS from "crypto-js";
 
 export default function setHeader() {
-    const token = localStorage.getItem("token");// CryptoJS.AES.decrypt(localStorage.getItem("token") ?? "", AuthenticationKey.IS_AUTHENTICATED)
+    const token = localStorage.getItem("token");// CryptoJS.AES.decrypt(localStorage.getItem("token") ?? "", IS_AUTHENTICATED)
     if (token)
         return `Bearer ${token}`;
     return '';
