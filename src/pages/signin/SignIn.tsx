@@ -1,5 +1,3 @@
-import * as React from 'react';
-import axios from 'axios';
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
 import { login } from 'my-redux/action-creators/authentication.action-creator';
 import { connect, useSelector } from 'react-redux';
@@ -9,15 +7,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import './SignIn.scss';
 import * as Yup from 'yup';
 import ButtonWrapper from 'styles/styled-components/button-wrapper';
+import ILoginModel from 'models/logins/login';
+import { AuthService } from 'services/auth-services/auth.service';
 
 interface IProps {
-    logInConnect: () => void;
+    logInConnect: (token: string) => void;
 }
-
-type LoginForm = {
-    email: string;
-    password: string;
-};
 
 const SignIn = ({ logInConnect }: IProps) => {
 
@@ -37,9 +32,13 @@ const SignIn = ({ logInConnect }: IProps) => {
         handleSubmit,
         reset,
         formState: { errors }
-    } = useForm<LoginForm>({
+    } = useForm<ILoginModel>({
         resolver: yupResolver(validationSchema),
         shouldFocusError: false,
+        defaultValues: {
+            email: 'dashboard@plexus-innovation.com',
+            password: 'LMhVaChL68AgX!Dh'
+        }
     });
 
     const isAuthenticated = useSelector((state: AppState) => state.authenticationReducer.isAuthenticated);
@@ -48,8 +47,16 @@ const SignIn = ({ logInConnect }: IProps) => {
         return <Redirect to="/" />;
     }
 
-    const onSubmit = (data: LoginForm) => {
-        logInConnect();
+    const onSubmit = (data: ILoginModel) => {
+        AuthService.login(data).then(
+            (resp: any) => {
+                logInConnect(resp.data.accessToken);
+            },
+            (error) => {
+                console.log("handle error here", error);
+
+            }
+        );
     };
 
     return (

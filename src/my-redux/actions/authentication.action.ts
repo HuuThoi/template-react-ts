@@ -2,11 +2,12 @@ import { AuthenticationActionType } from "my-redux/action-types/authentication.a
 
 
 export interface IAuthenticate {
-    type: AuthenticationActionType.AUTHENTICATE
+    type: AuthenticationActionType.AUTHENTICATE,
+    payload?: string
 }
 
 export interface IUnAuthenticate {
-    type: AuthenticationActionType.UNAUTHENTICATED
+    type: AuthenticationActionType.UNAUTHENTICATED,
 }
 
 export type AuthenticationAction = IAuthenticate | IUnAuthenticate;

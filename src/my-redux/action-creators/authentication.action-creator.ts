@@ -4,17 +4,23 @@ import { Dispatch } from "redux"
 import CryptoJS from "crypto-js";
 import { AuthenticationKey } from 'constants/authen-key';
 
-export const login = () => {
+export const login = (token: string) => {
   return async (dispatch: Dispatch<AuthenticationAction>) => {
     const value = CryptoJS.AES.encrypt("true", AuthenticationKey.IS_AUTHENTICATED).toString();
+   const _token = token;// CryptoJS.AES.encrypt(token, AuthenticationKey.IS_AUTHENTICATED).toString();
+    
     await window.localStorage.setItem('authenticated', value);
-    dispatch({ type: AuthenticationActionType.AUTHENTICATE });
+    await window.localStorage.setItem('token', _token);
+
+    dispatch({ type: AuthenticationActionType.AUTHENTICATE, payload: _token });
   }
 }
 
 export const logout = () => {
   return async (dispatch: Dispatch<AuthenticationAction>) => {
     await window.localStorage.removeItem('authenticated');
+    await window.localStorage.removeItem('token');
+
     dispatch({ type: AuthenticationActionType.UNAUTHENTICATED });
   }
 }
