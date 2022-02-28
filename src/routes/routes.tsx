@@ -1,7 +1,5 @@
-import ForgotPassword from 'pages/forgot-password/ForgotPassword';
-import SignIn from 'pages/signin/SignIn';
-import React, { lazy, Suspense, useEffect } from 'react';
-import { BrowserRouter, BrowserRouter as Router, Redirect, Route, RouteComponentProps, Switch, useHistory, useLocation } from 'react-router-dom';
+import { Suspense } from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import { AUTH_ROUTE, PUBLIC_ROUTE } from "./route.const"
