@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './SignIn.scss';
 import * as Yup from 'yup';
-import ButtonWrapper from 'styles/styled-components/button-wrapper';
+import { ButtonWrapper } from 'styles/styled-components';
 import ILoginModel from 'models/logins/login';
 import { AuthService } from 'services/auth-services/auth.service';
 

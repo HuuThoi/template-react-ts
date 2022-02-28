@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { UserService } from 'services/user-service/user.service';
 import { Table } from 'antd';
-import TableWrapper from 'styles/styled-components/table-wrapper';
+import { TableWrapper } from 'styles/styled-components';
 
 const UserPage = () => {
     const [users, setUsers] = useState();

@@ -8,8 +8,7 @@ import {
     Redirect,
     RouteProps,
 } from 'react-router-dom';
-import MainWrapper from 'styles/styled-components/main-wrapper';
-import PageContentWrapper from 'styles/styled-components/page-content-wrapper';
+import {MainWrapper, PageContentWrapper} from 'styles/styled-components';
 // import { AppRouteProps } from './route.const';
 
 interface AppRouteProps extends RouteProps {
