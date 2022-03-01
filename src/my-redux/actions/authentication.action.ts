@@ -1,9 +1,10 @@
+import ILoginResultModel from "models/logins/login-result.model";
 import { AuthenticationActionType } from "my-redux/action-types/authentication.action-type";
 
 
 export interface IAuthenticate {
     type: AuthenticationActionType.AUTHENTICATE,
-    payload?: string
+    payload?: ILoginResultModel 
 }
 
 export interface IUnAuthenticate {

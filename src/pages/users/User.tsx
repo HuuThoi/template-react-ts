@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { UserService } from 'services/user-service/user.service';
+import { UserService } from 'services/user-service';
 import { Table } from 'antd';
 import { TableWrapper } from 'styles/styled-components';
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import ILoginModel from "models/logins/login";
+import ILoginModel from "models/logins/login.model";
 
 const login = (model: ILoginModel) => {
     return axios.post(`/login`, model, { headers: { 'Authorization':'aaaa'}});

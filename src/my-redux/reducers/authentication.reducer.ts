@@ -3,9 +3,10 @@ import { AuthenticationActionType } from 'my-redux/action-types/authentication.a
 import CryptoJS from "crypto-js";
 import { IS_AUTHENTICATED } from 'utilities/constants';
 
-const initialState: Record<string, any>= {
+const initialState: Record<string, any> = {
     isAuthenticated: CryptoJS.AES.decrypt(window.localStorage.getItem("authenticated") ?? "", IS_AUTHENTICATED).toString(CryptoJS.enc.Utf8) == "true" ? true : false,
-    token: window.localStorage.getItem("token") ? CryptoJS.AES.decrypt(window.localStorage.getItem("token") ?? "", IS_AUTHENTICATED) : null
+    token: window.localStorage.getItem("token") ? CryptoJS.AES.decrypt(window.localStorage.getItem("token") ?? "", IS_AUTHENTICATED) : null,
+    basicInfo: window.localStorage.getItem("basicInfo")
 }
 
 const authenticationReducer = (state = initialState, action: AuthenticationAction) => {
@@ -14,14 +15,16 @@ const authenticationReducer = (state = initialState, action: AuthenticationActio
             return {
                 ...state,
                 isAuthenticated: false,
-                token: null
+                token: null,
+                basicInfo: null
             };
         };
         case AuthenticationActionType.AUTHENTICATE: {
             return {
                 ...state,
                 isAuthenticated: true,
-                token: action.payload
+                token: action.payload?.accessToken,
+                basicInfo: action.payload?.basicInfo
             };
         };
         default:

@@ -1,7 +1,9 @@
+import ILoginResultModel from 'models/logins/login-result.model';
+import { AppState } from 'my-redux';
 import { logout } from 'my-redux/action-creators/authentication.action-creator';
 import React, { MutableRefObject, useEffect, useRef } from 'react'
 import * as FaIcons from 'react-icons/fa'
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './HeaderOption.scss';
@@ -16,7 +18,11 @@ interface IProps {
 const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
     const wrapperRef = useRef<HTMLInputElement>(null);
 
+    const state = useSelector((state: AppState)=> state.authenticationReducer.basicInfo);
+
+
     useEffect(() => {
+        console.log(state?.email);
         document.addEventListener("click", handleClickOutside, false);
         return () => {
             document.removeEventListener("click", handleClickOutside, false);
@@ -42,7 +48,7 @@ const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
         <div ref={wrapperRef} className={`header-option ${classShow}`}>
             <div className="popover-content">
                 <div className="popover-title">
-                    Todo
+                    {state?.email}
                 </div>
 
                 <div className="popover-inner-content">
@@ -61,4 +67,5 @@ const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
 }
 
 const mapDispatchToProps = { logOutConnect: logout };
-export default connect(null, mapDispatchToProps)(HeaderOption);
+
+export default connect(null, mapDispatchToProps)(React.memo(HeaderOption));

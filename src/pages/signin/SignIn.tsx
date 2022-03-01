@@ -7,11 +7,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import './SignIn.scss';
 import * as Yup from 'yup';
 import { ButtonWrapper } from 'styles/styled-components';
-import ILoginModel from 'models/logins/login';
-import { AuthService } from 'services/auth-services/auth.service';
+import ILoginModel from 'models/logins/login.model';
+import { AuthService } from 'services/auth-services/\u001Dindex';
+import ILoginResultModel from 'models/logins/login-result.model';
 
 interface IProps {
-    logInConnect: (token: string) => void;
+    logInConnect: (data: ILoginResultModel) => void;
 }
 
 const SignIn = ({ logInConnect }: IProps) => {
@@ -50,11 +51,11 @@ const SignIn = ({ logInConnect }: IProps) => {
     const onSubmit = (data: ILoginModel) => {
         AuthService.login(data).then(
             (resp: any) => {
-                logInConnect(resp.data.accessToken);
+                let result: ILoginResultModel = resp.data;
+                logInConnect(result);
             },
             (error) => {
                 console.log("handle error here", error);
-
             }
         );
     };
@@ -69,7 +70,7 @@ const SignIn = ({ logInConnect }: IProps) => {
                         </div>
 
                         <div className="title">
-                            <p className="text-white">Vi đô</p>
+                            <p className="text-white">Hello, I'm Thoi</p>
                         </div>
 
                         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
