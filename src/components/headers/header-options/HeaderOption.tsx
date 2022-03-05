@@ -17,12 +17,9 @@ interface IProps {
 
 const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
     const wrapperRef = useRef<HTMLInputElement>(null);
-
     const state = useSelector((state: AppState)=> state.authenticationReducer.basicInfo);
 
-
     useEffect(() => {
-        console.log(state?.email);
         document.addEventListener("click", handleClickOutside, false);
         return () => {
             document.removeEventListener("click", handleClickOutside, false);
@@ -34,7 +31,6 @@ const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
             onClickOutside && onClickOutside();
         }
     };
-
 
     const handleLogout = () => {
         logOutConnect();

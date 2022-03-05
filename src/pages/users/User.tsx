@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { UserService } from 'services/user-service';
 import { Table } from 'antd';
 import { TableWrapper } from 'styles/styled-components';
+import shortid from  "shortid";
 
 const UserPage = () => {
     const [users, setUsers] = useState();
@@ -40,7 +41,7 @@ const UserPage = () => {
 
     return (
         <TableWrapper>
-            <Table pagination={{ simple: true }} key="mail" dataSource={users} columns={columns} />
+            <Table pagination={{ simple: true }} key={shortid.generate()} dataSource={users} columns={columns} />
         </TableWrapper>
     )
 
