@@ -5,11 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { store } from 'my-redux/store';
 import { ThemeProvider } from 'contexts/themes/ThemeProvider';
+import { ErrorBoundaryClassComponent } from 'components/error-boundaries/ErrorBoundaryClassComponent';
 
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
-      <App />
+      <ErrorBoundaryClassComponent>
+        <App />
+      </ErrorBoundaryClassComponent>
     </ThemeProvider>
   </Provider>,
   document.getElementById('root')

@@ -34,14 +34,14 @@ const UserPage = () => {
         {
             title: 'Email',
             dataIndex: 'email',
-            key: 'mail',
+            key: 'email',
             width: '40%',
         },
     ];
 
     return (
         <TableWrapper>
-            <Table pagination={{ simple: true }} key={shortid.generate()} dataSource={users} columns={columns} />
+            <Table pagination={{ simple: true }} rowKey={shortid.generate()} dataSource={users} columns={columns} />
         </TableWrapper>
     )
 

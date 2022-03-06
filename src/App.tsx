@@ -1,7 +1,5 @@
 import { AppRouter } from 'routes/routes';
-import { useTheme } from 'contexts/themes/hookTheme';
 import { LanguageProvider } from 'contexts/languages/context-with-library/LanguageProvider';
-import { LanguageProvider2 } from 'contexts/languages/context-only/LanguageProvider2';
 import { setupInterceptorsTo } from 'services/http-service/interceptor';
 import { useEffect } from 'react';
 import axios from 'axios';

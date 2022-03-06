@@ -1,11 +1,10 @@
 import { AppState } from 'my-redux/reducers';
 import * as React from 'react';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
     Route,
     Redirect,
     RouteProps,
-    RouteComponentProps,
 } from 'react-router-dom';
 // import { AppRouteProps } from './route.const';
 

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import { AUTH_ROUTE, PUBLIC_ROUTE } from "./route.const"
+import shortid from  "shortid";
 
 export function AppRouter() {
     return (
@@ -11,13 +12,13 @@ export function AppRouter() {
                 <Switch>
                     {PUBLIC_ROUTE.map((route, index) => {
                         return (
-                            <PublicRoute key={index} {...route} />
+                            <PublicRoute key={shortid.generate()} {...route} />
                         );
                     })}
 
                     {AUTH_ROUTE.map((route, index) => {
                         return (
-                            <PrivateRoute key={index} {...route} />
+                            <PrivateRoute key={shortid.generate()} {...route} />
                         );
                     })}
 

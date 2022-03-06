@@ -1,9 +1,7 @@
-import ILoginResultModel from 'models/logins/login-result.model';
 import { AppState } from 'my-redux';
 import { logout } from 'my-redux/action-creators/authentication.action-creator';
-import React, { MutableRefObject, useEffect, useRef } from 'react'
-import * as FaIcons from 'react-icons/fa'
-import { connect, useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useRef } from 'react'
+import { connect, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './HeaderOption.scss';
@@ -21,6 +19,8 @@ const HeaderOption = ({ logOutConnect, show, onClickOutside }: IProps) => {
 
     useEffect(() => {
         document.addEventListener("click", handleClickOutside, false);
+        console.log("con useEffect");
+
         return () => {
             document.removeEventListener("click", handleClickOutside, false);
         };

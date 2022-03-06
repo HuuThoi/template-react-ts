@@ -12,6 +12,7 @@
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
     "@types/react-icons": "^3.0.0",
+    "@types/react-overlays": "^3.1.0",
     "@types/react-redux": "^7.1.19",
     "@types/react-router-dom": "^5.3.1",
     "@types/redux-thunk": "^2.1.0",
@@ -35,8 +36,10 @@
     "react-scripts": "4.0.3",
     "react-switch": "^6.0.0",
     "react-thunk": "^1.0.0",
+    "react-use-error-boundary": "^1.0.2",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
+    "serve": "^13.0.2",
     "shortid": "^2.2.16",
     "styled-components": "^5.3.3",
     "typescript": "^4.4.3",
@@ -69,6 +72,7 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.0.2",
-    "@types/shortid": "0.0.29"
+    "@types/shortid": "0.0.29",
+    "react-error-overlay": "^6.0.9"
   }
 }

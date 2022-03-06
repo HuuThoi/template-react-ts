@@ -1,4 +1,4 @@
-import React, { createRef, MutableRefObject, useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import * as FaIcons from 'react-icons/fa'
 import HeaderOption from './header-options/HeaderOption';
 
@@ -7,7 +7,6 @@ import './Header.scss';
 const Header= (props: any) => {
 
     const [openProfile, setOpenProfile] = useState(false);
-    
    
     const toggleOpenProfile = () => {
         setOpenProfile(!openProfile);

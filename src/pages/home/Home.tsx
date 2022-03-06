@@ -1,20 +1,29 @@
 
+import { stat } from 'fs';
 import * as React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import axios from 'axios';
-import { useTheme } from 'contexts/themes/hookTheme';
-import { ThemeContext } from 'contexts/themes/ThemeContext';
-import { ThemeConsumer } from 'contexts/themes/ThemConsumer';
-import Sidebar from '../../components/headers/Header';
+import { RouteComponentProps } from 'react-router-dom';
 
-export default class Home extends React.Component<RouteComponentProps> {
+interface IState {
+    counter: number;
+}
+export default class Home extends React.Component<RouteComponentProps, IState> {
     // static contextType = ThemeContext;
 
     constructor(props: RouteComponentProps) {
-        super(props);
+        super(props)
+        this.state = {
+            counter: 0
+        }
+    }
+
+    public countUntilDoom = () => {
+       this.setState({ counter: 2 })
     }
 
     public render() {
+        // if(this.state.counter>1){
+        //     throw Error("error!");
+        // }
         return (
             <div className="">
                 Home
@@ -27,6 +36,8 @@ export default class Home extends React.Component<RouteComponentProps> {
                         return <div>{props.theme}</div>
                     }}
                 </ThemeConsumer> */}
+
+                {/* error boundaries */}
             </div>
         )
     }

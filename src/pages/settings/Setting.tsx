@@ -4,9 +4,9 @@ import Dropdown from 'react-dropdown';
 import Switch from 'react-switch';
 import 'react-dropdown/style.css';
 import './Setting.scss';
-import { useIntl, FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 
-import { languageDropdown, languageOptions } from 'contexts/languages/context-only/data';
+import { languageDropdown } from 'contexts/languages/context-only/data';
 import TextMultiLanguage from 'components/text-multi-language/TextMultiLanguage';
 import { LanguageContext2 } from 'contexts/languages/context-only/LanguageContext2';
 import { LanguageContext } from 'contexts/languages/context-with-library/LanguageContext';

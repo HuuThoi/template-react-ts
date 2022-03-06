@@ -1,4 +1,4 @@
-import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { login } from 'my-redux/action-creators/authentication.action-creator';
 import { connect, useSelector } from 'react-redux';
 import { AppState } from 'my-redux';
