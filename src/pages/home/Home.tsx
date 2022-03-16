@@ -1,10 +1,11 @@
 
+import ModalPortal from 'components/portals/ModalPortal';
 import { stat } from 'fs';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 interface IState {
-    counter: number;
+    open: boolean;
 }
 export default class Home extends React.Component<RouteComponentProps, IState> {
     // static contextType = ThemeContext;
@@ -12,12 +13,12 @@ export default class Home extends React.Component<RouteComponentProps, IState> {
     constructor(props: RouteComponentProps) {
         super(props)
         this.state = {
-            counter: 0
+            open: false
         }
     }
 
-    public countUntilDoom = () => {
-       this.setState({ counter: 2 })
+    public toggleModal = () => {
+        this.setState({ open: !this.state.open })
     }
 
     public render() {
@@ -37,7 +38,18 @@ export default class Home extends React.Component<RouteComponentProps, IState> {
                     }}
                 </ThemeConsumer> */}
 
-                {/* error boundaries */}
+                {/* begin test portal */}
+                <div className="component">
+                    <button onClick={this.toggleModal}>Open Modal</button>
+                    <ModalPortal
+                        message="Hello World!"
+                        isOpen={this.state.open}
+                        onClose={this.toggleModal}
+                    />
+
+                    {/* end test portal */}
+                </div>
+
             </div>
         )
     }
