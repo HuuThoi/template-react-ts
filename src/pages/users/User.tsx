@@ -20,21 +20,21 @@ const UserPage = () => {
 
     const columns = [
         {
-            title: 'First Name',
-            dataIndex: 'firstName',
-            key: 'firstName',
+            title: 'Flight Number',
+            dataIndex: 'flight_number',
+            key: 'flight_number',
             width: '30%'
         },
         {
-            title: 'Last Name',
-            dataIndex: 'lastName',
-            key: 'lastName',
+            title: 'Mission Name',
+            dataIndex: 'mission_name',
+            key: 'mission_name',
             width: '30%'
         },
         {
-            title: 'Email',
-            dataIndex: 'email',
-            key: 'email',
+            title: 'Launch Year',
+            dataIndex: 'launch_year',
+            key: 'launch_year',
             width: '40%',
         },
     ];

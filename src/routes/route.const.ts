@@ -29,6 +29,10 @@ export const AUTH_ROUTE = [
         component: lazy(() => import('../pages/settings/Setting')),
     },
     {
+        path: '/spaceships',
+        component: lazy(() => import('../pages/spaceships')),
+    },
+    {
         path: '',
         component: lazy(() => import('../pages/home/Home')),
         exact: true,

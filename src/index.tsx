@@ -6,15 +6,24 @@ import { Provider } from "react-redux";
 import { store } from 'my-redux/store';
 import { ThemeProvider } from 'contexts/themes/ThemeProvider';
 import { ErrorBoundaryClassComponent } from 'components/error-boundaries/ErrorBoundaryClassComponent';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://spacexdata.herokuapp.com/graphql',
+  cache: new InMemoryCache(),
+  // credentials:'include'
+})
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider>
-      <ErrorBoundaryClassComponent>
-        <App />
-      </ErrorBoundaryClassComponent>
-    </ThemeProvider>
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <ThemeProvider>
+        <ErrorBoundaryClassComponent>
+          <App />
+        </ErrorBoundaryClassComponent>
+      </ThemeProvider>
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

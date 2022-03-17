@@ -18,6 +18,11 @@ export const SidebarData = [
         icon: <FaIcons.FaTasks />
     },
     {
+        title: 'Spaceship',
+        path: '/spaceships',
+        icon: <FaIcons.FaPaperPlane />
+    },
+    {
         title: 'Settings',
         path: '/settings',
         icon: <FaIcons.FaUserCog />
